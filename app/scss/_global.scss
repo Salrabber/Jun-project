@@ -1,0 +1,57 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Avenir Next";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: $default;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container-fluid{
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.orange {
+  color: #f87c56;
+}
+
+.blue {
+  color: #307fe2;
+}
+
+.pink {
+  color: #f5cabf;
+}
+
+.sky {
+  color: #8abadd;
+}
+
+
+
