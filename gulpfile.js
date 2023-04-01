@@ -7,7 +7,6 @@ const uglify         = require('gulp-uglify-es').default;
 const autoprefixer   = require('gulp-autoprefixer');
 const imagemin       = require('gulp-imagemin');
 const del             = require('del');
-const ghPages = require('gulp-gh-pages');
 
 
 function browsersync() {
@@ -19,7 +18,7 @@ function browsersync() {
 }
 
 function cleanDist() {
-  return del('dist')
+  return del('docs')
 }
 
 function images() {
@@ -37,7 +36,7 @@ function images() {
         })
       ]
     ))
-    .pipe(dest('dist/images'))
+    .pipe(dest('docs/images'))
 }
 
 function scripts() {
@@ -72,7 +71,7 @@ function build() {
     'app/js/main.min.js',
     'app/*.html'
   ], {base: 'app'})
-    .pipe(dest('dist'))
+    .pipe(dest('docs'))
 }
 
 function watching() {
@@ -81,22 +80,12 @@ function watching() {
   watch(['app/*.html']).on('change', browserSync.reload);
 }
 
-function deploy() {
-  return gulp.src('./dist/**/*')
-    .pipe(ghPages());
-  // ghPages.publish('dist/**/*', {
-  //   branch: 'master',
-  //   repo: 'https://github.com/Salrabber/Jun-project.git'
-  // });
-}
-
 exports.styles = styles;
 exports.watching = watching;
 exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.images = images;
 exports.cleanDist = cleanDist;
-exports.deploy = deploy;
 
 
 
